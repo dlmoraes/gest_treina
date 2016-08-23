@@ -1,0 +1,33 @@
+{% extends 'data_table.html' %}
+
+{% block titulo %} Agências | {{ block.super }} {% endblock %}
+
+{% block cabecalho %} Agências
+    <small>Pesquisa de agências.</small>
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li><a href="#">Controle de Agências</a></li>
+    <li class="active">Agências</li>
+{% endblock %}
+
+{% block titulo_tabela %} Agências {% endblock %}
+
+{% block cabecalho_tabela %}
+    <th>#</th>
+    <th>Nome</th>
+    <th>Regional</th>
+    <th>Empresa</th>
+{% endblock %}
+
+{% block corpo_tabela %}
+    {% for agencia in agencias %}
+        <tr>
+            <td>{{ agencia.pk }}</td>
+            <td>{{ agencia.nome }}</td>
+            <td>{{ agencia.regional }}</td>
+            <td>{{ agencia.empresa }}</td>
+        </tr>
+    {% endfor %}
+{% endblock %}

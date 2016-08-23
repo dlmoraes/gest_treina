@@ -1,0 +1,35 @@
+{% extends 'data_table.html' %}
+
+{% block titulo %} {{ block.super }} Treinamentos {% endblock %}
+
+{% block cabecalho %} Treinamentos
+    <small>Pesquisa de treinamentos.</small>
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li><a href="#">Controle de Treinamentos</a></li>
+    <li class="active">Treinamentos</li>
+{% endblock %}
+
+{% block titulo_tabela %} Treinamentos {% endblock %}
+
+{% block cabecalho_tabela %}
+    <th>#</th>
+    <th>Título</th>
+    <th>Tipo</th>
+{% endblock %}
+
+{% block corpo_tabela %}
+    {% for treinamento in treinamentos %}
+        <tr>
+            <td>{{ treinamento.pk }}</td>
+            <td>
+                <a href="{{ treinamento.get_matricular_no_treinamento }}" title="Matricular pessoa/atendente neste treinamento.">
+                    {{ treinamento.titulo }}
+                </a>
+            </td>
+            <td>{{ treinamento.tipo|capfirst }}</td>
+        </tr>
+    {% endfor %}
+{% endblock %}

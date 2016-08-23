@@ -1,0 +1,29 @@
+{% extends 'data_table.html' %}
+
+{% block titulo %} {{ block.super }} Regionais {% endblock %}
+
+{% block cabecalho %} Regionais
+    <small>Pesquisa de regionais.</small>
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li><a href="#">Controle de Agências</a></li>
+    <li class="active">Regionais</li>
+{% endblock %}
+
+{% block titulo_tabela %} Regionais {% endblock %}
+
+{% block cabecalho_tabela %}
+    <th>#</th>
+    <th>Nome</th>
+{% endblock %}
+
+{% block corpo_tabela %}
+    {% for regional in regionais %}
+        <tr>
+            <td>{{ regional.pk }}</td>
+            <td>{{ regional.nome }}</td>
+        </tr>
+    {% endfor %}
+{% endblock %}

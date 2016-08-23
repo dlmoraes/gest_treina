@@ -1,0 +1,41 @@
+{% extends 'data_table.html' %}
+
+{% block titulo %} Atendentes | {{ block.super }} {% endblock %}
+
+{% block cabecalho %} Atendentes
+    <small>Pesquisa de atendentes.</small>
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li><a href="#">Controle de Atendentes</a></li>
+    <li class="active">Atendentes</li>
+{% endblock %}
+
+{% block titulo_tabela %} Atendentes {% endblock %}
+
+{% block cabecalho_tabela %}
+    <th>#</th>
+    <th>Matricula</th>
+    <th>Nome</th>
+    <th>Cargo</th>
+    <th>Agência</th>
+    <th>Avatar</th>
+{% endblock %}
+
+{% block corpo_tabela %}
+    {% for atendente in atendentes %}
+        <tr>
+            <td>{{ atendente.pk }}</td>
+            <td>{{ atendente.matricula }}</td>
+            <td>{{ atendente.pessoa.nome }}</td>
+            <td>{{ atendente.cargo }}</td>
+            <td>{{ atendente.agencia }}</td>
+            <td>
+                {% if atendente.pessoa.avatar %}
+                    <img src="{{ atendente.pessoa.avatar.url }}" align="center" class="img-circle center-block" height="40" width="40" alt="{{ atendente.nome }}">
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

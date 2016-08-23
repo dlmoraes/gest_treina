@@ -1,0 +1,37 @@
+{% extends 'data_table.html' %}
+
+{% block titulo %} Pessoas | {{ block.super }} {% endblock %}
+
+{% block cabecalho %} Pessoas
+    <small>Pesquisa de pessoas.</small>
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li><a href="#">Controle de Atendentes</a></li>
+    <li class="active">Pessoas</li>
+{% endblock %}
+
+{% block titulo_tabela %} Pessoas {% endblock %}
+
+{% block cabecalho_tabela %}
+    <th>#</th>
+    <th>Nome</th>
+    <th>Dta Nasc.</th>
+    <th>Avatar</th>
+{% endblock %}
+
+{% block corpo_tabela %}
+    {% for pessoa in pessoas %}
+        <tr>
+            <td>{{ pessoa.pk }}</td>
+            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.dta_nascimento }}</td>
+            <td>
+                {% if pessoa.avatar %}
+                    <img src="{{ pessoa.avatar.url }}" align="center" class="img-circle center-block" height="40" width="40" alt="{{ pessoa.nome }}">
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

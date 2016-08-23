@@ -1,0 +1,31 @@
+{% extends 'data_table.html' %}
+
+{% block titulo %} Empresas | {{ block.super }} {% endblock %}
+
+{% block cabecalho %} Empresas
+    <small>Pesquisa de empresas.</small>
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li><a href="#">Controle de Agências</a></li>
+    <li class="active">Empresas</li>
+{% endblock %}
+
+{% block titulo_tabela %} Empresas {% endblock %}
+
+{% block cabecalho_tabela %}
+    <th>#</th>
+    <th>Nome</th>
+    <th>Sigla</th>
+{% endblock %}
+
+{% block corpo_tabela %}
+    {% for empresa in empresas %}
+        <tr>
+            <td>{{ empresa.pk }}</td>
+            <td>{{ empresa.nome }}</td>
+            <td>{{ empresa.sigla }}</td>
+        </tr>
+    {% endfor %}
+{% endblock %}
