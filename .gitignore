@@ -69,5 +69,6 @@ lib/
 .directory
 pip-selfcheck.json
 gestao/gestao/
+share/
 
 local_settings.py
